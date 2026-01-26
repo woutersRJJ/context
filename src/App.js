@@ -1,11 +1,10 @@
 import './App.css';
+import ProvidedApp from "./components/ProvidedApp";
 
 function App() {
-  return (
-    <div>
-     Diverse contexten om het te leren
-    </div>
-  );
+    return (
+        <ProvidedApp />
+    );
 }
 
 export default App;
