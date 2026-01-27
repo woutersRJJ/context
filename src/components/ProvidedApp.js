@@ -1,10 +1,16 @@
 import {LoginProvider} from "../contexts/LoginContext";
 import Home from "../Home";
+import {MessagesProvider} from "../contexts/MessagesContext";
+import {NewsFlashesProvider} from "../contexts/NewsFlashesContext";
 
 function ProvidedApp() {
     return (
         <LoginProvider>
-            <Home/>
+            <MessagesProvider>
+                <NewsFlashesProvider>
+                    <Home/>
+                </NewsFlashesProvider>
+            </MessagesProvider>
         </LoginProvider>
     );
 }

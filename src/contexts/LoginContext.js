@@ -5,7 +5,6 @@ const LoginContext = createContext();
 export function LoginProvider({children}) {
     const [login, setLogin] = useState(false);
 
-    //const api = { login, setLogin };
     const api = useMemo(() => ({
             login, setLogin
         }), [login, setLogin])
