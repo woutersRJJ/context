@@ -1,6 +1,6 @@
 import { useLoginContext } from "./contexts/LoginContext";
 
-export default function Navbar() {
+export default function Home() {
     const { login, setLogin } = useLoginContext();
 
     return (
