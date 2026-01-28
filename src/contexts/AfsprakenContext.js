@@ -6,7 +6,7 @@ export function AfsprakenProvider({children}) {
     const [afspraken, setAfspraken] = useState(null);
 
     useEffect(() => {
-        fetch("/afspraken.json")
+        fetch(process.env.PUBLIC_URL +"/afspraken.json")
             .then(res => res.json())
             .then(data => setAfspraken(data));
     }, []);
