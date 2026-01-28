@@ -4,7 +4,7 @@ const NewsFlashesContext = createContext();
 
 export function NewsFlashesProvider({children}) {
     const [newsFlashes, setNewsFlashes] = useState([
-        ['BNP Paribas verhoogt dspaarrente', "BNP Paribas augmente taux d'intérêt"],
+        ['BNP Paribas verhoogt spaarrente', "BNP Paribas augmente taux d'intérêt"],
         ['Nieuwe Raad van Bestuur bij BNP Paribas', "Nouveau Conseil d'administration"],
         ['BNP Paribas verkozen tot beste bank', 'BNP Paribas élu comme meilleur banque'],
     ]);
