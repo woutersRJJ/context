@@ -2,12 +2,14 @@ import {useLoginContext} from "./contexts/LoginContext";
 import {useMessagesContext} from "./contexts/MessagesContext";
 import {useNewsFlashesContext} from "./contexts/NewsFlashesContext";
 import {useLanguageContext} from "./contexts/LanguageContext";
+import {useAfsprakenContext} from "./contexts/AfsprakenContext";
 
 export default function Home() {
     const {login, setLogin} = useLoginContext();
     const {messages} = useMessagesContext();
     const {newsFlashes} = useNewsFlashesContext();
     const {language , setLanguage} = useLanguageContext();
+    const {afspraken}=useAfsprakenContext()
 
     const handleLanguageChange = (event) => { setLanguage(event.target.value);  };
 
@@ -38,6 +40,17 @@ export default function Home() {
                             ) : (
                                 <>  <h2>{language==='NL' ? 'Berichten' : 'Messages'}</h2>
                                     {messages.map((m, index) => <p key={index}>{language==='NL' ? m[0] : m[1]}</p>)}
+                                </>
+
+                            )
+                        }
+
+                        {
+                            afspraken.length === 0 ? (
+                                <h2>{ language==='NL' ? 'Geen afspraken' : 'Aucun rendez-vous'}</h2>
+                            ) : (
+                                <>  <h2>{language==='NL' ? 'Afspraken' : 'Rendez-vous'}</h2>
+                                    {afspraken.map((a, index) => <p key={index}>{a.datum} - {a.medewerker}</p>)}
                                 </>
 
                             )

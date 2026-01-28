@@ -3,6 +3,7 @@ import Home from "../Home";
 import {MessagesProvider} from "../contexts/MessagesContext";
 import {NewsFlashesProvider} from "../contexts/NewsFlashesContext";
 import {LanguageProvider} from "../contexts/LanguageContext";
+import {AfsprakenProvider} from "../contexts/AfsprakenContext";
 
 function ProvidedApp() {
     return (
@@ -10,7 +11,9 @@ function ProvidedApp() {
             <LoginProvider>
                 <MessagesProvider>
                     <NewsFlashesProvider>
-                        <Home/>
+                        <AfsprakenProvider>
+                            <Home/>
+                        </AfsprakenProvider>
                     </NewsFlashesProvider>
                 </MessagesProvider>
             </LoginProvider>
