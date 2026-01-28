@@ -4,12 +4,13 @@ const NewsFlashesContext = createContext();
 
 export function NewsFlashesProvider({children}) {
     const [newsFlashes, setNewsFlashes] = useState([
-        'BNP Paribas verhoogt zijn spaarrente',
-        'Nieuwe raad van bestuur bij BNP paribas',
-        'BNP Paribas verkozen tot beste bank']);
+        ['BNP Paribas verhoogt dspaarrente', "BNP Paribas augmente taux d'intérêt"],
+        ['Nieuwe Raad van Bestuur bij BNP Paribas', "Nouveau Conseil d'administration"],
+        ['BNP Paribas verkozen tot beste bank', 'BNP Paribas élu comme meilleur banque'],
+    ]);
 
     const api = useMemo(() => ({
-        newsFlashes, setNewsFlashes
+            newsFlashes, setNewsFlashes
         }), [newsFlashes, setNewsFlashes])
     ;
 

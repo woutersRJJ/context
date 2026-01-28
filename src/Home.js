@@ -24,7 +24,7 @@ export default function Home() {
             {
                 <>
                     <h2>{ language==='NL' ? 'Nieuws' : 'Nouvelles'}</h2>
-                        {newsFlashes.map((n, index) => <p key={index}>{n}</p>)}
+                        {newsFlashes.map((n, index) => <p key={index}>{ language==='NL' ? n[0] : n[1] }</p>)}
                 </>
             }
             <nav>
@@ -37,7 +37,7 @@ export default function Home() {
                                 <h2>{ language==='NL' ? 'Geen nieuws' : 'Pas des nouvelles'}</h2>
                             ) : (
                                 <>  <h2>{language==='NL' ? 'Berichten' : 'Messages'}</h2>
-                                    {messages.map((m, index) => <p key={index}>{m}</p>)}
+                                    {messages.map((m, index) => <p key={index}>{language==='NL' ? m[0] : m[1]}</p>)}
                                 </>
 
                             )
