@@ -8,7 +8,8 @@ export function AfsprakenProvider({children}) {
     useEffect(() => {
         fetch(process.env.PUBLIC_URL +"/afspraken.json")
             .then(res => res.json())
-            .then(data => setAfspraken(data));
+            .then(data => setAfspraken(data))
+            .catch(err => console.error('Error kan json file niet lezen. Check naam en pad aub:', err));
     }, []);
 
     const api = useMemo(() => ({
