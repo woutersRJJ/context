@@ -4,17 +4,17 @@ import {firestoreDatabase} from "../services/firestore";
 export const FilialenContext = createContext();
 
 export function FilialenProvider({ children }) {
-    const [filialen, setFilialen] = useState(null);
+    const [filialen, setFilialen] = useState([]);
 
     useEffect(() => {
         async function loadFilialen() {
             try {
-                const res = await firestoreDatabase.collection('filialen').get();
+                const res = await firestoreDatabase.collection('filialen').orderBy('postcode').get();
                 setFilialen(res.docs.map(doc => ({...doc.data()})));
             } catch (err) {
                 console.error("Failed to load filialen:", err);
             } finally {
-
+                console.log('Filialen geladen')
             }
         }
 

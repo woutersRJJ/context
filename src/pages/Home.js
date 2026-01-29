@@ -43,7 +43,7 @@ export default function Home() {
                 </>
             }
 
-            <h2>{language === 'NL' ? 'Vreemde valuta' : 'Devise étrangères'}</h2>
+            <h2>{language === 'NL' ? 'Vreemde valuta' : 'Devises étrangères'}</h2>
             {loading ? <p>rates loading...</p> : <p>rates loaded</p>}
             <ul>
                 {rates && Object.entries(rates).map(([currency, value]) => (
