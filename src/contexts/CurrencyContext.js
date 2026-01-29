@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import {createContext, useState, useEffect, useMemo, useContext} from "react";
 
 export const CurrencyContext = createContext();
 
@@ -24,9 +24,16 @@ export function CurrencyProvider({ children }) {
         loadRates();
     }, []);
 
+    const api = useMemo(() => ({
+            rates, loading
+        }), [rates,  loading])
+    ;
+
     return (
-        <CurrencyContext.Provider value={{ rates, loading }}>
+        <CurrencyContext.Provider value={api}>
             {children}
         </CurrencyContext.Provider>
     );
 }
+
+export const useCurrencyContext = () => useContext(CurrencyContext);

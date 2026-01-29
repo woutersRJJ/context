@@ -1,8 +1,9 @@
-import {useLoginContext} from "./contexts/LoginContext";
-import {useMessagesContext} from "./contexts/MessagesContext";
-import {useNewsFlashesContext} from "./contexts/NewsFlashesContext";
-import {useLanguageContext} from "./contexts/LanguageContext";
-import {useAfsprakenContext} from "./contexts/AfsprakenContext";
+import {useLoginContext} from "../contexts/LoginContext";
+import {useMessagesContext} from "../contexts/MessagesContext";
+import {useNewsFlashesContext} from "../contexts/NewsFlashesContext";
+import {useLanguageContext} from "../contexts/LanguageContext";
+import {useAfsprakenContext} from "../contexts/AfsprakenContext";
+import {useCurrencyContext} from "../contexts/CurrencyContext";
 
 export default function Home() {
     const {login, setLogin} = useLoginContext();
@@ -10,6 +11,8 @@ export default function Home() {
     const {newsFlashes} = useNewsFlashesContext();
     const {language , setLanguage} = useLanguageContext();
     const {afspraken}=useAfsprakenContext()
+    const {loading,rates}=useCurrencyContext()
+    //const {rates}=useCurrencyContext()
 
     const handleLanguageChange = (event) => { setLanguage(event.target.value);  };
 
@@ -61,6 +64,17 @@ export default function Home() {
                     <button onClick={() => setLogin(true)}>Login</button>
                 )}
             </nav>
+
+            <h2>Currency rates</h2>
+            <ul>
+                {rates && Object.entries(rates).map(([currency, value]) => (
+                    <li key={currency}>
+                        {currency}: {value}
+                    </li>
+                ))}
+            </ul>
+
+
         </>
     );
 }
