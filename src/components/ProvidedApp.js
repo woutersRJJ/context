@@ -18,17 +18,17 @@ function ProvidedApp() {
                         <NewsFlashesProvider>
                             <AfsprakenProvider>
                                 <FilialenProvider>
-                                    {/*<Home/>*/}
-                                    <div>
-                                        <nav style={{ display: "flex", gap: "1rem", padding: "1rem" }}>
-                                            <Link to="/">Home</Link>
-                                            <Link to="/contact">Contact</Link>
-                                        </nav>
-                                    </div>
-                                    <Routes>
-                                        <Route path="/" element={<Home />} />
-                                        <Route path="/contact" element={<Contact />} />
-                                    </Routes>
+                        {/*<Home/>*/}
+                        <div>
+                            <nav style={{ display: "flex", gap: "1rem", padding: "1rem" }}>
+                                <Link to="/">Home</Link>
+                                <Link to="/contact">Contact</Link>
+                            </nav>
+                        </div>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/contact" element={<Contact />} />
+                        </Routes>
                                 </FilialenProvider>
                             </AfsprakenProvider>
                         </NewsFlashesProvider>
