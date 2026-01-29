@@ -5,6 +5,7 @@ import {NewsFlashesProvider} from "../contexts/NewsFlashesContext";
 import {LanguageProvider} from "../contexts/LanguageContext";
 import {AfsprakenProvider} from "../contexts/AfsprakenContext";
 import {CurrencyProvider} from "../contexts/CurrencyContext";
+import {FilialenProvider} from "../contexts/FilialenContext";
 
 function ProvidedApp() {
     return (
@@ -14,7 +15,9 @@ function ProvidedApp() {
                     <MessagesProvider>
                         <NewsFlashesProvider>
                             <AfsprakenProvider>
-                                <Home/>
+                                <FilialenProvider>
+                                    <Home/>
+                                </FilialenProvider>
                             </AfsprakenProvider>
                         </NewsFlashesProvider>
                     </MessagesProvider>

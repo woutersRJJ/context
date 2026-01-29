@@ -4,6 +4,7 @@ import {useNewsFlashesContext} from "../contexts/NewsFlashesContext";
 import {useLanguageContext} from "../contexts/LanguageContext";
 import {useAfsprakenContext} from "../contexts/AfsprakenContext";
 import {useCurrencyContext} from "../contexts/CurrencyContext";
+import {useFilialenContext} from "../contexts/FilialenContext";
 
 export default function Home() {
     const {login, setLogin} = useLoginContext();
@@ -12,6 +13,7 @@ export default function Home() {
     const {language, setLanguage} = useLanguageContext();
     const {afspraken} = useAfsprakenContext()
     const {rates, loading} = useCurrencyContext()
+    const {filialen} = useFilialenContext()
 
     const handleLanguageChange = (event) => {
         setLanguage(event.target.value);
@@ -44,12 +46,6 @@ export default function Home() {
                 ))}
             </ul>
 
-           {/* {
-                <>
-                    <h2>{language === 'NL' ? 'Nieuws' : 'Nouvelles'}</h2>
-                    {newsFlashes.map((n, index) => <p key={index}>{language === 'NL' ? n[0] : n[1]}</p>)}
-                </>
-            }*/}
             <nav>
                 {login ? (
                     <>
@@ -83,15 +79,7 @@ export default function Home() {
                 )}
             </nav>
 
-           {/* <h2>{language === 'NL' ? 'Vreemde valuta' : 'Devise étrangères'}</h2>
-            {loading ? <p>rates loading...</p> : <p>rates loaded</p>}
-            <ul>
-                {rates && Object.entries(rates).map(([currency, value]) => (
-                    <li key={currency}>
-                        {currency}: {value}
-                    </li>
-                ))}
-            </ul>*/}
+
         </>
     );
 }
