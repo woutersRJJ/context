@@ -36,6 +36,13 @@ export default function Home() {
                 </>
             }
 
+            {
+                <>
+                    <h2>{language === 'NL' ? 'Filialen' : 'Filiales'}</h2>
+                    {filialen.map((f, index) => <p key={index}>{f.postcode} {f.gemeente}</p>)}
+                </>
+            }
+
             <h2>{language === 'NL' ? 'Vreemde valuta' : 'Devise étrangères'}</h2>
             {loading ? <p>rates loading...</p> : <p>rates loaded</p>}
             <ul>
