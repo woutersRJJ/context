@@ -6,8 +6,9 @@ import {LanguageProvider} from "../contexts/LanguageContext";
 import {AfsprakenProvider} from "../contexts/AfsprakenContext";
 import {CurrencyProvider} from "../contexts/CurrencyContext";
 import {FilialenProvider} from "../contexts/FilialenContext";
-import {Link, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {Contact} from "../pages/Contact";
+import {Header} from "./Header";
 
 function ProvidedApp() {
     return (
@@ -18,17 +19,11 @@ function ProvidedApp() {
                         <NewsFlashesProvider>
                             <AfsprakenProvider>
                                 <FilialenProvider>
-                        {/*<Home/>*/}
-                        <div>
-                            <nav style={{ display: "flex", gap: "1rem", padding: "1rem" }}>
-                                <Link to="/">Home</Link>
-                                <Link to="/contact">Contact</Link>
-                            </nav>
-                        </div>
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/contact" element={<Contact />} />
-                        </Routes>
+                                    <Header/>
+                                    <Routes>
+                                        <Route path="/" element={<Home />} />
+                                        <Route path="/contact" element={<Contact />} />
+                                    </Routes>
                                 </FilialenProvider>
                             </AfsprakenProvider>
                         </NewsFlashesProvider>
