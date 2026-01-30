@@ -10,7 +10,7 @@ import {Route, Routes} from "react-router-dom";
 import {Contact} from "../pages/Contact";
 import {Header} from "./Header";
 import Login from "../pages/Login";
-import {MyBnp} from "./MyBnp";
+import {MyBnp} from "../pages/MyBnp";
 import ProtectedRoute from "./ProtectedRoute";
 
 function ProvidedApp() {
