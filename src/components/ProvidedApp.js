@@ -9,6 +9,7 @@ import {FilialenProvider} from "../contexts/FilialenContext";
 import {Route, Routes} from "react-router-dom";
 import {Contact} from "../pages/Contact";
 import {Header} from "./Header";
+import Login from "./Login";
 
 function ProvidedApp() {
     return (
@@ -23,6 +24,7 @@ function ProvidedApp() {
                                     <Routes>
                                         <Route path="/" element={<Home />} />
                                         <Route path="/contact" element={<Contact />} />
+                                        <Route path="/login" element={<Login />} />
                                     </Routes>
                                 </FilialenProvider>
                             </AfsprakenProvider>

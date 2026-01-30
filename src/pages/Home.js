@@ -33,36 +33,29 @@ export default function Home() {
             </ul>
 
             <nav>
-                {login ? (
-                    <>
-                        <button onClick={() => setLogin(false)}>Logout</button>
+                <>
+                    { login ?
+                        messages.length === 0 ? (
+                            <h2>{language === 'NL' ? 'Geen nieuws' : 'Pas des nouvelles'}</h2>
+                        ) : (
+                            <>  <h2>{language === 'NL' ? 'Berichten' : 'Messages'}</h2>
+                                {messages.map((m, index) => <p key={index}>{language === 'NL' ? m[0] : m[1]}</p>)}
+                            </>
 
-                        {
-                            messages.length === 0 ? (
-                                <h2>{language === 'NL' ? 'Geen nieuws' : 'Pas des nouvelles'}</h2>
-                            ) : (
-                                <>  <h2>{language === 'NL' ? 'Berichten' : 'Messages'}</h2>
-                                    {messages.map((m, index) => <p key={index}>{language === 'NL' ? m[0] : m[1]}</p>)}
-                                </>
+                        ) :null
+                    }
 
-                            )
-                        }
+                    { login ?
+                        afspraken.length === 0 ? (
+                            <h2>{language === 'NL' ? 'Geen afspraken' : 'Aucun rendez-vous'}</h2>
+                        ) : (
+                            <>  <h2>{language === 'NL' ? 'Afspraken' : 'Rendez-vous'}</h2>
+                                {afspraken.map((a, index) => <p key={index}>{a.datum} - {a.medewerker}</p>)}
+                            </>
 
-                        {
-                            afspraken.length === 0 ? (
-                                <h2>{language === 'NL' ? 'Geen afspraken' : 'Aucun rendez-vous'}</h2>
-                            ) : (
-                                <>  <h2>{language === 'NL' ? 'Afspraken' : 'Rendez-vous'}</h2>
-                                    {afspraken.map((a, index) => <p key={index}>{a.datum} - {a.medewerker}</p>)}
-                                </>
-
-                            )
-                        }
-
-                    </>
-                ) : (
-                    <button onClick={() => setLogin(true)}>Login</button>
-                )}
+                        ) : null
+                    }
+                </>
             </nav>
         </>
     );
