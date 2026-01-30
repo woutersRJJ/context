@@ -6,7 +6,7 @@ import {useAfsprakenContext} from "../contexts/AfsprakenContext";
 import {useCurrencyContext} from "../contexts/CurrencyContext";
 
 export default function Home() {
-    const {login, setLogin} = useLoginContext();
+    const {login} = useLoginContext();
     const {messages} = useMessagesContext();
     const {newsFlashes} = useNewsFlashesContext();
     const {language} = useLanguageContext();
