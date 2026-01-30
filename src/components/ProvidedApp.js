@@ -9,7 +9,9 @@ import {FilialenProvider} from "../contexts/FilialenContext";
 import {Route, Routes} from "react-router-dom";
 import {Contact} from "../pages/Contact";
 import {Header} from "./Header";
-import Login from "./Login";
+import Login from "../pages/Login";
+import {MyBnp} from "./MyBnp";
+import ProtectedRoute from "./ProtectedRoute";
 
 function ProvidedApp() {
     return (
@@ -24,6 +26,12 @@ function ProvidedApp() {
                                     <Routes>
                                         <Route path="/" element={<Home />} />
                                         <Route path="/contact" element={<Contact />} />
+                                        <Route
+                                            path="/mybnp"
+                                            element={
+                                                <ProtectedRoute>
+                                                    <MyBnp />
+                                                </ProtectedRoute>} />
                                         <Route path="/login" element={<Login />} />
                                     </Routes>
                                 </FilialenProvider>
