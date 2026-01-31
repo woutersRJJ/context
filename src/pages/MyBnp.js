@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {useMessagesContext} from "../contexts/MessagesContext";
 import {useAfsprakenContext} from "../contexts/AfsprakenContext";
 import {useLanguageContext} from "../contexts/LanguageContext";
+import { FaTrash } from "react-icons/fa";
 
 export function MyBnp() {
     const {login, setLogin} = useLoginContext();
@@ -28,7 +29,8 @@ export function MyBnp() {
                             <h2>{language === 'NL' ? 'Geen nieuws' : 'Pas des nouvelles'}</h2>
                         ) : (
                             <>  <h2>{language === 'NL' ? 'Berichten' : 'Messages'}</h2>
-                                {messages.map((m, index) => <p key={index}>{language === 'NL' ? m[0] : m[1]}</p>)}
+                                {/*{messages.map((m, index) => <p key={index}>{language === 'NL' ? m[0] : m[1]}</p>)}*/}
+                                {messages.map((m, index) => <Message key={index} message={language === 'NL' ? m[0] : m[1]} i={index} />)}
                             </>
 
                         ) : null
@@ -46,7 +48,21 @@ export function MyBnp() {
                     }
                 </>
             </nav>
-
         </div>
     )
 }
+
+function Message({message,i}) {
+
+    const {messages,setMessages} = useMessagesContext();
+
+    const handleDelete = (i) => {
+        setMessages(messages.filter((m,index)=>index!==i))
+    };
+
+    return <div>
+        <FaTrash size={15} color="red" onClick={()=>handleDelete(i)}/>
+        <span style={{marginLeft:'3px'}}>{message}</span>
+    </div>
+}
+
